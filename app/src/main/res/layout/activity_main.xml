@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I am the fucking Ironman"
+        android:text="I am the Ironman"
         android:textColor="#e60000"
         android:textSize="30sp"
         android:textStyle="bold"
