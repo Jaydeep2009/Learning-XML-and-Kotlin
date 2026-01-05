@@ -1,21 +1,50 @@
 package com.jaydeep.activitylifecycle
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class NewActivity : AppCompatActivity() {
+class NewActivity : AppCompatActivity(){
+    lateinit var mobile: EditText
+    lateinit var password: EditText
+    lateinit var login: Button
+    lateinit var forgotPassword: TextView
+    lateinit var registerYourself: TextView
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_new)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        title = "login"
+
+        // Initialize views
+        mobile = findViewById(R.id.mobile)
+        password = findViewById(R.id.password)
+        login = findViewById(R.id.login)
+        forgotPassword = findViewById(R.id.forgotPassword)
+        registerYourself = findViewById(R.id.registerYourself)
+
+        // Set click listeners
+        login.setOnClickListener {
+
+            Toast.makeText(
+                this@NewActivity,
+                "Login pressed!",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            val intent= Intent(this@NewActivity, MainActivity::class.java)
+            startActivity(intent);
         }
-        title="login"
+//        forgotPassword.setOnClickListener(this)
+//        registerYourself.setOnClickListener(this)
     }
+
+
+
+
 }
